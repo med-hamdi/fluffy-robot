@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Scan — Restaurant Gastronomique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #0d0d0d; color: #f3f3f3; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        header { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+        header video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.4); }
+        header div div { z-index: 1; padding: 20px; }
+        header p:first-of-type { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 4px; color: #d4af37; margin-bottom: 15px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 600; margin-bottom: 15px; color: #fff; }
+        header h1 em { color: #d4af37; font-style: italic; }
+        header p:last-of-type { font-size: 1.2rem; color: #ccc; font-style: italic; margin-bottom: 30px; }
+        
+        .btn { display: inline-block; padding: 12px 30px; background: transparent; border: 1px solid #d4af37; color: #d4af37; text-decoration: uppercase; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s; border-radius: 30px; }
+        .btn:hover { background: #d4af37; color: #0d0d0d; }
+
+        nav { background: #141414; padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
+        nav div { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 0 20px; }
+        nav a { color: #bbb; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #d4af37; }
+
+        main { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        section { margin-bottom: 80px; }
+        
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title span { color: #d4af37; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-top: 5px; color: #fff; }
+        .section-title p { color: #aaa; margin-top: 10px; font-style: italic; }
+
+        .menu-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        @media(min-width: 768px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
+
+        article { display: flex; background: #161616; border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; }
+        article:hover { border-color: #d4af37; }
+        article img { width: 110px; height: 110px; object-fit: cover; }
+        .art-content { padding: 15px 20px; display: flex; flex-direction: column; justify-content: center; flex-grow: 1; }
+        .art-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+        .art-header h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #fff; }
+        .art-header span { color: #d4af37; font-weight: 600; font-size: 1.1rem; }
+        .art-content p { color: #888; font-size: 0.88rem; }
+
+        footer { background: #080808; padding: 50px 20px; text-align: center; border-top: 1px solid #222; color: #777; }
+        footer h4 { color: #d4af37; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        footer address { font-style: normal; margin-bottom: 20px; line-height: 1.6; }
+        footer address a { color: #f3f3f3; text-decoration: none; }
+        .footer-content { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; text-align: center; }
+        @media(min-width: 600px) { .footer-content { grid-template-columns: repeat(3, 1fr); text-align: left; } }
+        .copyright { font-size: 0.85rem; border-top: 1px solid #1a1a1a; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <header id="hero">
+        <video autoplay loop muted playsinline>
+            <source src="https://videos.pexels.com/video-files/854345/854345-hd_1280_720_30fps.mp4" type="video/mp4">
+        </video>
+        <div>
+            <p>Restaurant Gastronomique</p>
+            <h1>Elite <em>Scan</em></h1>
+            <p>L'excellence culinaire en trois temps : l'instant, le geste, le goût.</p>
+            <a href="#entrees" class="btn">Voir le menu</a>
+        </div>
+    </header>
+
+    <nav>
+        <div>
+            <a href="#entrees">Entrées</a>
+            <a href="#burgers">Burgers</a>
+            <a href="#sandwichs">Sandwichs</a>
+            <a href="#pizzas">Pizzas</a>
+            <a href="#pates">Pâtes</a>
+            <a href="#principaux">Plats</a>
+            <a href="#desserts">Desserts</a>
+            <a href="#boissons">Boissons</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 🍽️ ENTRÉES -->
+        <section id="entrees">
+            <div class="section-title">
+                <span>01</span>
+                <h2>Entrées & Salades</h2>
+                <p>Une ouverture délicate pour éveiller le palais.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=75" alt="Salade Verte">
+                    <div class="art-content"><div class="art-header"><h3>Salade Verte</h3><span>9 DT</span></div><p>Fraîcheur du jardin</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=500&q=75" alt="Salade César">
+                    <div class="art-content"><div class="art-header"><h3>Salade César</h3><span>18 DT</span></div><p>Poulet, parmesan, croûtons</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=500&q=75" alt="Salade Thon">
+                    <div class="art-content"><div class="art-header"><h3>Salade Thon</h3><span>17 DT</span></div><p>Légumes de saison et thon</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=500&q=75" alt="Salade Grecque">
+                    <div class="art-content"><div class="art-header"><h3>Salade Grecque</h3><span>18 DT</span></div><p>Fêta, olives, tomates, concombre</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=500&q=75" alt="Brik">
+                    <div class="art-content"><div class="art-header"><h3>Brik Thon</h3><span>7 DT</span></div><p>Croustillant traditionnel</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=500&q=75" alt="Brik Viande">
+                    <div class="art-content"><div class="art-header"><h3>Brik Viande</h3><span>8 DT</span></div><p>Viande hachée et œuf</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=500&q=75" alt="Soupe">
+                    <div class="art-content"><div class="art-header"><h3>Soupe du Jour</h3><span>9 DT</span></div><p>Préparation maison</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=75" alt="Frites">
+                    <div class="art-content"><div class="art-header"><h3>Assiette Frites</h3><span>8 DT</span></div><p>Dorées et croustillantes</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🍔 BURGERS -->
+        <section id="burgers">
+            <div class="section-title">
+                <span>02</span>
+                <h2>Burgers</h2>
+                <p>Gourmands, juteux et préparés à la minute.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=75" alt="Classic Burger">
+                    <div class="art-content"><div class="art-header"><h3>Classic Burger</h3><span>20 DT</span></div><p>Steak haché, cheddar, sauce maison</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=75" alt="Cheese Burger">
+                    <div class="art-content"><div class="art-header"><h3>Cheese Burger</h3><span>22 DT</span></div><p>Double dose de fromage fondue</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=75" alt="Double Burger">
+                    <div class="art-content"><div class="art-header"><h3>Double Burger</h3><span>27 DT</span></div><p>Double steak, double plaisir</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=500&q=75" alt="Chicken Burger">
+                    <div class="art-content"><div class="art-header"><h3>Chicken Burger</h3><span>21 DT</span></div><p>Poulet pané croustillant</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=75" alt="Burger BBQ">
+                    <div class="art-content"><div class="art-header"><h3>Burger BBQ</h3><span>24 DT</span></div><p>Sauce barbecue fumée, oignons confits</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=75" alt="Burger Mexicain">
+                    <div class="art-content"><div class="art-header"><h3>Burger Mexicain</h3><span>25 DT</span></div><p>Jalapeños, piment, sauce épicée</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🥪 SANDWICHS -->
+        <section id="sandwichs">
+            <div class="section-title">
+                <span>03</span>
+                <h2>Sandwichs & Paninis</h2>
+                <p>Le goût sur le pouce, sans compromis.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=75" alt="Sandwich Escalope">
+                    <div class="art-content"><div class="art-header"><h3>Sandwich Escalope</h3><span>15 DT</span></div><p>Escalope marinée et grillée</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=75" alt="Sandwich Thon">
+                    <div class="art-content"><div class="art-header"><h3>Sandwich Thon</h3><span>13 DT</span></div><p>Thon, salade, olives</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1621852003501-77a251432f14?auto=format&fit=crop&w=500&q=75" alt="Sandwich Mixte">
+                    <div class="art-content"><div class="art-header"><h3>Sandwich Mixte</h3><span>16 DT</span></div><p>Assortiment de viandes</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1626803775151-61d756612f97?auto=format&fit=crop&w=500&q=75" alt="Panini Poulet">
+                    <div class="art-content"><div class="art-header"><h3>Panini Poulet</h3><span>18 DT</span></div><p>Poulet fondant et mozzarella</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=500&q=75" alt="Panini Jambon Fromage">
+                    <div class="art-content"><div class="art-header"><h3>Panini Jambon Fromage</h3><span>17 DT</span></div><p>Le grand classique fondat</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=500&q=75" alt="Club Sandwich">
+                    <div class="art-content"><div class="art-header"><h3>Club Sandwich</h3><span>22 DT</span></div><p>Tranches de pain de mie, poulet, œufs, frites</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🍕 PIZZAS -->
+        <section id="pizzas">
+            <div class="section-title">
+                <span>04</span>
+                <h2>Pizzas</h2>
+                <p>Pâte croustillante et ingrédients frais cuits au feu.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=500&q=75" alt="Margherita">
+                    <div class="art-content"><div class="art-header"><h3>Margherita</h3><span>18 DT</span></div><p>Sauce tomate, mozzarella, basilic</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=75" alt="Napolitaine">
+                    <div class="art-content"><div class="art-header"><h3>Napolitaine</h3><span>20 DT</span></div><p>Anchois, câpres, olives</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=75" alt="Pizza Thon">
+                    <div class="art-content"><div class="art-header"><h3>Thon</h3><span>21 DT</span></div><p>Thon, sauce tomate, mozzarella</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1595750033099-0d86a2468301?auto=format&fit=crop&w=500&q=75" alt="Fruits de Mer">
+                    <div class="art-content"><div class="art-header"><h3>Fruits de Mer</h3><span>30 DT</span></div><p>Cocktail de l'océan, ail, persil</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=75" alt="4 Fromages">
+                    <div class="art-content"><div class="art-header"><h3>4 Fromages</h3><span>24 DT</span></div><p>Mozzarella, emmental, roquefort, parmesan</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=500&q=75" alt="Pizza Poulet">
+                    <div class="art-content"><div class="art-header"><h3>Poulet</h3><span>23 DT</span></div><p>Emincés de poulet, champignons</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500&q=75" alt="Pepperoni">
+                    <div class="art-content"><div class="art-header"><h3>Pepperoni</h3><span>24 DT</span></div><p>Saucisson pepperoni piquant</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=500&q=75" alt="Végétarienne">
+                    <div class="art-content"><div class="art-header"><h3>Végétarienne</h3><span>20 DT</span></div><p>Légumes grillés du soleil</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🍝 PÂTES -->
+        <section id="pates">
+            <div class="section-title">
+                <span>05</span>
+                <h2>Pâtes</h2>
+                <p>Voyage direct en Italie à travers nos recettes.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281297?auto=format&fit=crop&w=500&q=75" alt="Spaghetti Bolognaise">
+                    <div class="art-content"><div class="art-header"><h3>Spaghetti Bolognaise</h3><span>24 DT</span></div><p>Sauce viande hachée mijotée</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=500&q=75" alt="Carbonara">
+                    <div class="art-content"><div class="art-header"><h3>Carbonara</h3><span>26 DT</span></div><p>Crème, bacon, jaune d'œuf, parmesan</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=500&q=75" alt="Alfredo Poulet">
+                    <div class="art-content"><div class="art-header"><h3>Alfredo Poulet</h3><span>28 DT</span></div><p>Emincés de poulet, champignons, crème onctueuse</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=500&q=75" alt="Fruits de Mer">
+                    <div class="art-content"><div class="art-header"><h3>Fruits de Mer</h3><span>34 DT</span></div><p>Pâtes aux trésors marins</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=500&q=75" alt="Lasagne">
+                    <div class="art-content"><div class="art-header"><h3>Lasagne</h3><span>27 DT</span></div><p>Gratinées au four avec béchamel et viande</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=500&q=75" alt="Penne Arrabiata">
+                    <div class="art-content"><div class="art-header"><h3>Penne Arrabiata</h3><span>22 DT</span></div><p>Sauce tomate piquante, ail, persil</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🥩 PLATS PRINCIPAUX -->
+        <section id="principaux">
+            <div class="section-title">
+                <span>06</span>
+                <h2>Plats Principaux</h2>
+                <p>L'excellence culinaire et les pièces d'exception.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=500&q=75" alt="Escalope Grillée">
+                    <div class="art-content"><div class="art-header"><h3>Escalope Grillée</h3><span>30 DT</span></div><p>Accompagnement au choix</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=75" alt="Escalope Panée">
+                    <div class="art-content"><div class="art-header"><h3>Escalope Panée</h3><span>30 DT</span></div><p>Dorée et croustillante</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=500&q=75" alt="Cordon Bleu">
+                    <div class="art-content"><div class="art-header"><h3>Cordon Bleu</h3><span>32 DT</span></div><p>Farcit au jambon et fromage fondu</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=500&q=75" alt="Steak Grillé">
+                    <div class="art-content"><div class="art-header"><h3>Steak Grillé</h3><span>38 DT</span></div><p>Cuisson parfaite selon vos envies</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=500&q=75" alt="Filet de Bœuf">
+                    <div class="art-content"><div class="art-header"><h3>Filet de Bœuf</h3><span>48 DT</span></div><p>Tendre et savoureux, jus corsé</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=75" alt="Mix Grill">
+                    <div class="art-content"><div class="art-header"><h3>Mix Grill</h3><span>45 DT</span></div><p>Assortiment de viandes grillées</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=500&q=75" alt="Dorade Grillée">
+                    <div class="art-content"><div class="art-header"><h3>Dorade Grillée</h3><span>40 DT</span></div><p>Poisson frais du jour</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=75" alt="Saumon Grillé">
+                    <div class="art-content"><div class="art-header"><h3>Saumon Grillé</h3><span>48 DT</span></div><p>Pavé de saumon, légumes de saison</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🍰 DESSERTS -->
+        <section id="desserts">
+            <div class="section-title">
+                <span>07</span>
+                <h2>Desserts</h2>
+                <p>La note sucrée et gourmande de votre repas.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=75" alt="Fondant Chocolat">
+                    <div class="art-content"><div class="art-header"><h3>Fondant Chocolat</h3><span>12 DT</span></div><p>Cœur coulant intense</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=500&q=75" alt="Tiramisu">
+                    <div class="art-content"><div class="art-header"><h3>Tiramisu</h3><span>12 DT</span></div><p>Café et mascarpone traditionnel</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=75" alt="Cheesecake">
+                    <div class="art-content"><div class="art-header"><h3>Cheesecake</h3><span>13 DT</span></div><p>Onctueux avec coulis de fruits</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=500&q=75" alt="Crème Brûlée">
+                    <div class="art-content"><div class="art-header"><h3>Crème Brûlée</h3><span>11 DT</span></div><p>Vanille bourbon croustillante</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1560008511-11c63416e52d?auto=format&fit=crop&w=500&q=75" alt="Coupe Glacée">
+                    <div class="art-content"><div class="art-header"><h3>Coupe Glacée</h3><span>12 DT</span></div><p>Parfums variés au choix</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=500&q=75" alt="Gaufre Nutella">
+                    <div class="art-content"><div class="art-header"><h3>Gaufre Nutella</h3><span>14 DT</span></div><p>Gaufre croustillante nappée de Nutella</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=500&q=75" alt="Crêpe Nutella">
+                    <div class="art-content"><div class="art-header"><h3>Crêpe Nutella</h3><span>13 DT</span></div><p>Crêpe fine et gourmande</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=500&q=75" alt="Salade de Fruits">
+                    <div class="art-content"><div class="art-header"><h3>Salade de Fruits</h3><span>11 DT</span></div><p>Fruits frais de saison</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🥤 BOISSONS -->
+        <section id="boissons">
+            <div class="section-title">
+                <span>08</span>
+                <h2>Boissons Chaudes & Froides</h2>
+                <p>Pour accompagner ou rafraîchir votre moment.</p>
+            </div>
+            <div class="menu-grid">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=75" alt="Expresso">
+                    <div class="art-content"><div class="art-header"><h3>Expresso</h3><span>4 DT</span></div><p>Café serré</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=75" alt="Capucin">
+                    <div class="art-content"><div class="art-header"><h3>Capucin</h3><span>5 DT</span></div><p>Café noisette</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=75" alt="Café Crème">
+                    <div class="art-content"><div class="art-header"><h3>Café Crème</h3><span>5.5 DT</span></div><p>Onctueux et doux</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=500&q=75" alt="Cappuccino">
+                    <div class="art-content"><div class="art-header"><h3>Cappuccino</h3><span>8 DT</span></div><p>Mousse de lait généreuse</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=75" alt="Chocolat Chaud">
+                    <div class="art-content"><div class="art-header"><h3>Chocolat Chaud</h3><span>8 DT</span></div><p>Riche et réconfortant</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=75" alt="Thé">
+                    <div class="art-content"><div class="art-header"><h3>Thé</h3><span>4 DT</span></div><p>Infusion au choix</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=500&q=75" alt="Eau">
+                    <div class="art-content"><div class="art-header"><h3>Eau 0.5L / 1L</h3><span>2 / 3 DT</span></div><p>Minérale fraîche</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500&q=75" alt="Soda">
+                    <div class="art-content"><div class="art-header"><h3>Soda</h3><span>4 DT</span></div><p>Boisson gazeuse</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=500&q=75" alt="Jus Frais">
+                    <div class="art-content"><div class="art-header"><h3>Jus Frais</h3><span>8 DT</span></div><p>100% naturel</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=75" alt="Mojito">
+                    <div class="art-content"><div class="art-header"><h3>Mojito Sans Alcool</h3><span>12 DT</span></div><p>Menthe, citron, eau gazeuse</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=75" alt="Milkshake">
+                    <div class="art-content"><div class="art-header"><h3>Milkshake</h3><span>13 DT</span></div><p>Onctueux et gourmand</p></div>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=500&q=75" alt="Smoothie">
+                    <div class="art-content"><div class="art-header"><h3>Smoothie</h3><span>14 DT</span></div><p>Mélange de fruits frais</p></div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Elite Scan</h4>
+                <p>Cuisine gastronomique et diversifiée.</p>
+            </div>
+            <div>
+                <h4>Adresse</h4>
+                <address>Sousse, Tunisie<br><a href="tel:+21620000000">+216 20 000 000</a></address>
+            </div>
+            <div>
+                <h4>Horaires</h4>
+                <p>Mar – Ven : 12h–14h30 / 19h–22h30</p>
+                <p>Samedi : 19h – 23h</p>
+                <p>Dimanche : 12h – 15h</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Elite Scan Restaurant. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
